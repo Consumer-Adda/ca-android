@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "43937790046",
+    "firebase_url": "https://consumer-adda-insider.firebaseio.com",
+    "project_id": "consumer-adda-insider",
+    "storage_bucket": "consumer-adda-insider.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43937790046:android:8a1771a0132f8daea45ccf",
+        "android_client_info": {
+          "package_name": "com.example.shareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43937790046-n0bq1rs0b1eejatjpog6g04v838pbnen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhy4y5JYukurMQVNMuafW60KNy6JIeJSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43937790046-n0bq1rs0b1eejatjpog6g04v838pbnen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

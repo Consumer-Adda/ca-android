@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent"
+    tools:context=".About">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:title="Consumer Adda"
+        app:titleTextColor="@color/gradStart" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="10dp"
+        android:text="About Us"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/textView3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+
+                android:text="Consumer Adda started off in 2014 by trio of young enlightened law students as champions
+for awareness amongst citizens about their consumer rights. The founding members
+rendered free legal services and contested the causes of the aggrieved consumers. Our
+organisation underlying motto is Cause Litigation. The two-fold duty of this organisation is
+first as a platform for awareness of Consumer Rights in public campaign and become a
+platform to help you in procuring legal professionals"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In Our Seven years of service to our society, we have successfully dealt causes against both big and small corporate companies and business enterprises. Having done that we have devise a novel mechanism. Through our mediation and negotiations, the organisation makes efforts that your cases does not go to courts. Organisation’s nature and extent of service is to provide best mediations and negotiations. To that end we ensure solutions to the problem without you going through the jargons of legal procedures at the very outset."
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/te"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="But what if the issue does requires courts’ assistance? So here WE help you explore wide range of legal services as per your requirement. This is where the organisation acts to procure for you legal professionals, however you have a discretion to choose your own lawyer or experts. So Citizens if you do have legal complication in Consumer law, Insurance law, banking regulations, Real Estate or RERA or Debt Recovery and or require knowledge and awareness; help us to help you!"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Made in India"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/te" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
