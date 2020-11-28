@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,10 @@ class Sign_Up_Activity :AppCompatActivity(){
     private lateinit var db:FirebaseFirestore
     private var role = -1
 
+    private var boolEmail = false
+    private var boolName = false
+    private var boolPassword = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up)
@@ -43,9 +48,12 @@ class Sign_Up_Activity :AppCompatActivity(){
         Login_pg.setOnClickListener {
             val intent= Intent(this,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
+
         signup_btn.setOnClickListener {
+            Toast.makeText(this,"Sign Up Clicked",Toast.LENGTH_SHORT).show()
             if(role==1)
             {
                 showPhoneDialog()
@@ -88,15 +96,8 @@ class Sign_Up_Activity :AppCompatActivity(){
             rbClient.isChecked = false
         }
 
-
-        if(isEmailValid(email) && pwd.length>=6 && role!=-1 && (naam.isEmpty() || naam.isNullOrBlank() || naam.isNullOrEmpty()))
-        {
-            signup_btn.isClickable = true
-            signup_btn.setBackgroundColor(Color.parseColor(systemBlue))
-            signup_btn.setTextColor(Color.parseColor(white))
-        }
-
     }
+
 
     private fun showPhoneDialog() {
         val mDialog = Dialog(this)
@@ -149,7 +150,11 @@ class Sign_Up_Activity :AppCompatActivity(){
             return
         }
 
-
+        if(role==-1)
+        {
+            Toast.makeText(this,"Select some role to Sign Up",Toast.LENGTH_SHORT).show()
+            return
+        }
 
         val progress= ProgressDialog(this,R.style.AlertDialogTheme)
         progress.setMessage("Signing Up...")
@@ -210,4 +215,8 @@ class Sign_Up_Activity :AppCompatActivity(){
     private fun isEmailValid(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
+}
+
+private fun EditText.addTextChangedListener(function: () -> Unit) {
+
 }

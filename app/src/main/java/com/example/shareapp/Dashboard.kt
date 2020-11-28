@@ -4,6 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -16,6 +19,7 @@ class Dashboard : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -26,7 +30,28 @@ class Dashboard : AppCompatActivity() {
             startActivity(Intent(this,ComplaintForm::class.java))
         }
 
+        btnMoreSetOnClickListener()
 
+    }
+
+    private fun btnMoreSetOnClickListener() {
+        btnMore.setOnClickListener{
+            val popupMenu: PopupMenu = PopupMenu(this, btnMore)
+            popupMenu.menuInflater.inflate(
+                R.menu.toolbar_menu,
+                popupMenu.menu
+            ) // change the layout file as per the need
+            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.about-> startActivity(Intent(this,About::class.java))
+                    R.id.service->startActivity(Intent(this,Services::class.java))
+                    R.id.sign_out->niklo()
+                    R.id.contact->startActivity(Intent(this,ContactUs::class.java));
+                }
+                true
+            })
+            popupMenu.show()
+        }
     }
 
 

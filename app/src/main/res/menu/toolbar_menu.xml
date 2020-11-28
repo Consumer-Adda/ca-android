@@ -7,10 +7,6 @@
         android:title="About Us"
         app:showAsAction="never"
         />
-    <item android:id="@+id/ca_help"
-        android:title="App Guide"
-        app:showAsAction="never"
-        />
     <item android:id="@+id/service"
         android:title="Our Services"
         app:showAsAction="never"
