@@ -26,7 +26,7 @@ class ContactUs : AppCompatActivity() {
 
         gmail_btn.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
-            val recipients = arrayOf("consumeradda@gmail.com")
+            val recipients = arrayOf("consumersadda@gmail.com")
             intent.putExtra(Intent.EXTRA_EMAIL, recipients)
 
             intent.type = "text/html"

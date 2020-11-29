@@ -7,372 +7,683 @@
     android:layout_height="match_parent"
     tools:context=".ComplaintForm">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <TextView
+        android:id="@+id/btnBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AppCompat.Light"
-        app:title="Consumer Adda"
-        app:titleTextColor="@color/gradStart" />
+        android:text="Dashboard"
+        android:padding="12dp"
+        android:textSize="24sp"
+        android:textColor="#5896d6"
+        android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="74dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="32dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <ScrollView
+        android:id="@+id/svCaseForm"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="E-Mail"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <TextView
+                android:id="@+id/tvFormHeader"
+                android:text="Personal Details"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="76dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="25dp"
-        android:text="Case Against*"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvPersonDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@id/tvFormHeader"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="#e2e2e2"
+                >
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Select Type"
-        android:text="Case Type*"
-        app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="97dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="30dp"
-        android:text="Brief Description*"
-        app:layout_constraintStart_toStartOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    <TextView
+                        android:id="@+id/tvFirstName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First\nName*"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etFirstName"
+                        app:layout_constraintEnd_toStartOf="@+id/etFirstName"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etFirstName" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="93dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="88dp"
-        android:text="Money Involved"
-        app:layout_constraintStart_toStartOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etFirstName"
+                        app:layout_constraintBottom_toBottomOf="@id/etFirstName"
+                        app:layout_constraintTop_toTopOf="@id/etFirstName"
+                        />
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="219dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Attachments* (images only)        (min. 1/max. 5) (Small sized images are recommended)"
-        app:layout_constraintStart_toStartOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                    <EditText
+                        android:id="@+id/etFirstName"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/et_bg"
+                        android:hint="First Name"
+                        android:inputType="textPersonName"
+                        android:paddingStart="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp"
+                        android:textCursorDrawable="@null"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/img_btn1"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_bg"
+                    <TextView
+                        android:id="@+id/tvLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last\nName*"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etLastName"
+                        app:layout_constraintEnd_toStartOf="@+id/etLastName"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etLastName" />
 
-        android:paddingBottom="5dp"
-        android:text="+"
-        android:textAlignment="gravity"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etLastName"
+                        app:layout_constraintBottom_toBottomOf="@id/etLastName"
+                        app:layout_constraintTop_toTopOf="@id/etLastName"
+                        />
 
-    <ImageView
-        android:layout_width="46dp"
-        android:gravity="center"
-        android:layout_height="46dp"
-        android:src="@mipmap/green"
-        android:paddingTop="4dp"
-        android:id="@+id/img_btn11"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
-    />
+                    <EditText
+                        android:id="@+id/etLastName"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/etFirstName"
+                        app:layout_constraintEnd_toEndOf="@id/etFirstName"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:hint="Last Name"
+                        android:inputType="textPersonName"
+                        android:textSize="18sp"
+                        android:textCursorDrawable="@null"
+                        />
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="83dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:text="Phone Number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_btn1" />
+                    <TextView
+                        android:id="@+id/tvCityDistrict"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="City/\nDistrict*"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etCityDistrict"
+                        app:layout_constraintEnd_toStartOf="@+id/etCityDistrict"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etCityDistrict" />
 
-    <Button
-        android:id="@+id/img_btn2"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_bg"
-        android:paddingBottom="5dp"
-        android:text="+"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/img_btn1"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
-    <ImageView
-        android:layout_width="46dp"
-        android:gravity="center"
-        android:layout_height="46dp"
-        android:src="@mipmap/green"
-        android:paddingTop="4dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/img_btn22"
-        app:layout_constraintStart_toEndOf="@+id/img_btn1"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
-        />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etCityDistrict"
+                        app:layout_constraintBottom_toBottomOf="@id/etCityDistrict"
+                        app:layout_constraintTop_toTopOf="@id/etCityDistrict"
+                        />
 
-    <Button
-        android:id="@+id/img_btn3"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_bg"
-        android:paddingBottom="5dp"
-        android:text="+"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/img_btn2"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                    <EditText
+                        android:id="@+id/etCityDistrict"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/etLastName"
+                        app:layout_constraintEnd_toEndOf="@id/etLastName"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:hint="Eg. Agra"
+                        android:textSize="18sp"
+                        android:textCursorDrawable="@null"
+                        />
 
-    <ImageView
-        android:layout_width="46dp"
-        android:gravity="center"
-        android:layout_height="46dp"
-        android:src="@mipmap/green"
-        android:paddingTop="4dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/img_btn33"
-        app:layout_constraintStart_toEndOf="@+id/img_btn2"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
-        />
+                    <TextView
+                        android:id="@+id/tvState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="State*"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etState"
+                        app:layout_constraintEnd_toStartOf="@+id/etState"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etState" />
 
-    <Button
-        android:id="@+id/img_btn4"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_bg"
-        android:paddingBottom="5dp"
-        android:text="+"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/img_btn3"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etState"
+                        app:layout_constraintBottom_toBottomOf="@id/etState"
+                        app:layout_constraintTop_toTopOf="@id/etState"
+                        />
 
-    <ImageView
-        android:layout_width="46dp"
-        android:gravity="center"
-        android:layout_height="46dp"
-        android:src="@mipmap/green"
-        android:paddingTop="4dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/img_btn44"
-        app:layout_constraintStart_toEndOf="@+id/img_btn3"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
-        />
+                    <EditText
+                        android:id="@+id/etState"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="15dp"
+                        app:layout_constraintTop_toBottomOf="@id/etCityDistrict"
+                        app:layout_constraintEnd_toEndOf="@id/etCityDistrict"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:hint="Eg. Uttar Pradesh"
+                        android:textSize="18sp"
+                        android:textCursorDrawable="@null"/>
 
-    <Button
-        android:id="@+id/img_btn5"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_bg"
-        android:paddingBottom="5dp"
-        android:text="+"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/img_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="#a9a9a9"
+                        app:layout_constraintTop_toBottomOf="@id/etFirstName"
+                        app:layout_constraintBottom_toTopOf="@id/etLastName"
+                        />
 
-    <ImageView
-        android:layout_width="46dp"
-        android:gravity="center"
-        android:layout_height="46dp"
-        android:src="@mipmap/green"
-        android:paddingTop="4dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/img_btn55"
-        app:layout_constraintStart_toEndOf="@+id/img_btn4"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
-        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="#a9a9a9"
+                        app:layout_constraintTop_toBottomOf="@id/etLastName"
+                        app:layout_constraintBottom_toTopOf="@id/etCityDistrict"
+                        />
 
-    <EditText
-        android:id="@+id/case_name"
-        android:layout_width="240dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/et_bg"
-        android:editable="false"
-        android:ems="10"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="none"
-        android:paddingLeft="10dp"
-        android:textColor="@color/black"
-        android:textCursorDrawable="@color/cursor"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/etState"
+                        app:layout_constraintTop_toBottomOf="@id/etCityDistrict" />
 
-    <EditText
-        android:id="@+id/case_email"
-        android:layout_width="240dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/et_bg"
-        android:editable="false"
-        android:ems="10"
-        android:inputType="none"
-        android:paddingLeft="10dp"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:textColor="@color/black"
-        android:textCursorDrawable="@color/cursor"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/case_name"
-        app:layout_constraintTop_toBottomOf="@+id/case_name" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/case_against"
-        android:layout_width="240dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/et_bg"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
+            <TextView
+                android:id="@+id/tvCaseDetails"
+                android:text="Case Details"
+                app:layout_constraintTop_toBottomOf="@id/cvPersonDetails"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        android:textColor="@color/black"
-        android:textCursorDrawable="@color/cursor"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/case_email"
-        app:layout_constraintTop_toBottomOf="@+id/case_email" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvCaseDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@id/tvCaseDetails"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="#e2e2e2">
 
-    <Spinner
-        android:id="@+id/case_type"
-        android:layout_width="240dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="15dp"
-        android:paddingLeft="10dp"
-        android:spinnerMode="dropdown"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        app:layout_constraintEnd_toEndOf="@+id/case_against"
-        app:layout_constraintTop_toBottomOf="@+id/case_against" />
+                    <TextView
+                        android:id="@+id/tvCaseAgainst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Case\nAgainst*"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etCaseAgainst"
+                        app:layout_constraintEnd_toStartOf="@+id/etCaseAgainst"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etCaseAgainst" />
 
-    <EditText
-        android:id="@+id/case_desc"
-        android:layout_width="240dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/spinner_bg"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="(max 100 words)"
-        android:inputType="textMultiLine"
-        android:paddingLeft="5dp"
-        android:paddingTop="2dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="2dp"
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etCaseAgainst"
+                        app:layout_constraintBottom_toBottomOf="@id/etCaseAgainst"
+                        app:layout_constraintTop_toTopOf="@id/etCaseAgainst"
+                        />
 
-        android:textColor="@color/black"
-        android:textCursorDrawable="@color/cursor"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/case_type"
-        app:layout_constraintTop_toBottomOf="@+id/case_type" />
+                    <EditText
+                        android:id="@+id/etCaseAgainst"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/et_bg"
+                        android:hint="First Name"
+                        android:inputType="textPersonName"
+                        android:paddingStart="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp"
+                        android:textCursorDrawable="@null"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
 
-    <EditText
-        android:id="@+id/case_money"
-        android:layout_width="240dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="29dp"
-        android:background="@drawable/et_bg"
-        android:ems="10"
-        android:hint="(enter 0 if no money involved)"
-        android:inputType="number"
-        android:paddingLeft="10dp"
-        android:textColor="@color/black"
-        android:textCursorDrawable="@color/cursor"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/case_desc"
-        app:layout_constraintTop_toBottomOf="@+id/case_desc" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/btnCaseType"
+                        app:layout_constraintTop_toBottomOf="@+id/etCaseAgainst"
+                        tools:layout_editor_absoluteX="15dp" />
 
-    <EditText
-        android:id="@+id/case_phno"
-        android:layout_width="240dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/et_bg"
-        android:ems="10"
-        android:hint="(Optional)"
+                    <TextView
+                        android:id="@+id/tvCaseType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Case\nType"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/btnCaseType"
+                        app:layout_constraintEnd_toStartOf="@+id/btnCaseType"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/btnCaseType" />
 
-        android:inputType="phone"
-        android:paddingLeft="10dp"
-        android:textColor="@color/black"
-        android:textCursorDrawable="@color/cursor"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_btn5" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/btnCaseType"
+                        app:layout_constraintBottom_toBottomOf="@id/btnCaseType"
+                        app:layout_constraintTop_toTopOf="@id/btnCaseType"
+                        />
 
-    <Button
-        android:id="@+id/final_btn"
-        android:layout_width="151dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_bg"
-        android:gravity="center|center_vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:text="Submit Case"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/case_phno" />
+                    <Spinner
+                        android:id="@+id/btnCaseType"
+                        android:layout_width="220dp"
+                        android:layout_height="44dp"
+                        android:padding="10dp"
+                        android:spinnerMode="dropdown"
+                        app:layout_constraintTop_toBottomOf="@id/etCaseAgainst"
+                        app:layout_constraintEnd_toEndOf="@id/etCaseAgainst"
+                        android:background="@drawable/et_bg"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCaseDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Case\nOverview*"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etCaseDescription"
+                        app:layout_constraintEnd_toStartOf="@+id/etCaseDescription"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etCaseDescription" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etCaseDescription"
+                        app:layout_constraintBottom_toBottomOf="@id/etCaseDescription"
+                        app:layout_constraintTop_toTopOf="@id/etCaseDescription"
+                        />
+
+                    <EditText
+                        android:id="@+id/etCaseDescription"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Brief (Max 150 words)"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/btnCaseType"
+                        app:layout_constraintEnd_toEndOf="@id/btnCaseType"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:textSize="18sp"
+                        android:maxLength="150"
+                        android:textCursorDrawable="@null"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/etCaseDescription"
+                        app:layout_constraintTop_toBottomOf="@id/btnCaseType" />
+
+                    <TextView
+                        android:id="@+id/tvMoneyInvolved"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Money\nInvolved*"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etMoneyInvolved"
+                        app:layout_constraintEnd_toStartOf="@+id/etMoneyInvolved"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etMoneyInvolved" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etMoneyInvolved"
+                        app:layout_constraintBottom_toBottomOf="@id/etMoneyInvolved"
+                        app:layout_constraintTop_toTopOf="@id/etMoneyInvolved"
+                        />
+
+                    <EditText
+                        android:id="@+id/etMoneyInvolved"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:hint="If no money, type 0"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/etCaseDescription"
+                        app:layout_constraintEnd_toEndOf="@id/etCaseDescription"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:textSize="18sp"
+                        android:inputType="number"
+                        android:textCursorDrawable="@null"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/etMoneyInvolved"
+                        app:layout_constraintTop_toBottomOf="@id/etCaseDescription" />
+
+                    <TextView
+                        android:id="@+id/tvAttachments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        app:layout_constraintTop_toBottomOf="@id/etMoneyInvolved"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Attachments ( PDF/IMAGE )\nMin - 1, Max - 5"
+                        />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnAttachment1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_baseline_cloud_upload_24"
+                        android:backgroundTint="@color/systemBlue"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="15dp"
+                        app:layout_constraintStart_toStartOf="@id/tvAttachments"
+                        app:layout_constraintTop_toBottomOf="@id/tvAttachments"
+                        />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnAttachment2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="@id/btnAttachment1"
+                        app:layout_constraintStart_toEndOf="@id/btnAttachment1"
+                        android:layout_marginLeft="5dp"
+                        android:backgroundTint="@color/systemBlue"
+                        android:visibility="invisible"
+                        android:src="@drawable/ic_baseline_cloud_upload_24"
+                        />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnAttachment3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="@id/btnAttachment2"
+                        app:layout_constraintStart_toEndOf="@id/btnAttachment2"
+                        android:layout_marginLeft="5dp"
+                        android:backgroundTint="@color/systemBlue"
+                        android:visibility="invisible"
+                        android:src="@drawable/ic_baseline_cloud_upload_24"
+                        />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnAttachment4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="@id/btnAttachment3"
+                        app:layout_constraintStart_toEndOf="@id/btnAttachment3"
+                        android:layout_marginLeft="5dp"
+                        android:backgroundTint="@color/systemBlue"
+                        android:visibility="invisible"
+                        android:src="@drawable/ic_baseline_cloud_upload_24"
+                        />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnAttachment5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="@id/btnAttachment4"
+                        app:layout_constraintStart_toEndOf="@id/btnAttachment4"
+                        android:layout_marginLeft="5dp"
+                        android:backgroundTint="@color/systemBlue"
+                        android:src="@drawable/ic_baseline_cloud_upload_24"
+                        android:visibility="invisible"
+                        />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvContactDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:text="Contact Details"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvCaseDetails"
+                android:textSize="30sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvContactDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@id/tvContactDetails"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="#e2e2e2"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvClientEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email ID"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etClientEmail"
+                        app:layout_constraintEnd_toStartOf="@+id/etClientEmail"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etClientEmail" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etClientEmail"
+                        app:layout_constraintBottom_toBottomOf="@id/etClientEmail"
+                        app:layout_constraintTop_toTopOf="@id/etClientEmail"
+                        />
+
+                    <EditText
+                        android:id="@+id/etClientEmail"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/et_bg"
+                        android:paddingStart="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="18sp"
+                        android:editable="false"
+                        android:ems="10"
+                        android:inputType="none"
+                        android:paddingLeft="10dp"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:textColor="#a3a3a3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvClientPhoneNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone\nNumber"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/etClientPhoneNumber"
+                        app:layout_constraintEnd_toStartOf="@+id/etClientPhoneNumber"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/etClientPhoneNumber" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/etClientPhoneNumber"
+                        app:layout_constraintBottom_toBottomOf="@id/etClientPhoneNumber"
+                        app:layout_constraintTop_toTopOf="@id/etClientPhoneNumber"
+                        />
+
+                    <EditText
+                        android:id="@+id/etClientPhoneNumber"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="15dp"
+                        app:layout_constraintTop_toBottomOf="@id/etClientEmail"
+                        app:layout_constraintEnd_toEndOf="@id/etClientEmail"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:hint="Optional "
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:textSize="18sp"
+                        android:textCursorDrawable="@null"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/etClientPhoneNumber"
+                        app:layout_constraintTop_toBottomOf="@id/etClientEmail" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cvContactDetails"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_goneMarginBottom="25dp"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:backgroundTint="#5896d6"
+                android:text="Submit"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:background="@drawable/btn_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="25dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
