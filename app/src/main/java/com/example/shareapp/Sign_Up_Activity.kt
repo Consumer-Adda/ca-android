@@ -53,14 +53,16 @@ class Sign_Up_Activity :AppCompatActivity(){
 
 
         signup_btn.setOnClickListener {
-            Toast.makeText(this,"Sign Up Clicked",Toast.LENGTH_SHORT).show()
-            if(role==1)
+            if(validData())
             {
-                showPhoneDialog()
-            }
-            else
-            {
-                register_user()
+                if(role==1)
+                {
+                    showPhoneDialog()
+                }
+                else
+                {
+                    register_user()
+                }
             }
         }
         db=FirebaseFirestore.getInstance()
@@ -98,6 +100,41 @@ class Sign_Up_Activity :AppCompatActivity(){
 
     }
 
+    private fun validData(): Boolean {
+        val email=signup_email.text.toString().trim()
+        val pwd = signup_pwd.text.toString().trim()
+        val naam=cl_name.text.toString().trim()
+
+        if(naam.isEmpty())
+        {
+            cl_name.error="Field should not be empty"
+            cl_name.requestFocus()
+            return false
+        }
+        if(!isEmailValid(email) || email.isEmpty())
+        {
+            signup_email.error="Please enter a valid email"
+            signup_email.requestFocus()
+            return false
+        }
+
+
+        if(pwd.length < 6 || pwd.isEmpty())
+        {
+            signup_pwd.error="Password must contain at-least 6 letters"
+            signup_pwd.requestFocus()
+            return false
+        }
+
+        if(role==-1)
+        {
+            Toast.makeText(this,"Select some role to Sign Up",Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        return true
+    }
+
 
     private fun showPhoneDialog() {
         val mDialog = Dialog(this)
@@ -107,8 +144,8 @@ class Sign_Up_Activity :AppCompatActivity(){
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
-        mDialog.setCanceledOnTouchOutside(false) // prevent dialog box from getting dismissed on outside touch
-        mDialog.setCancelable(false)  //prevent dialog box from getting dismissed on back key pressed
+        mDialog.setCanceledOnTouchOutside(false)
+        mDialog.setCancelable(false)
         mDialog.show()
         mDialog.btnFPSubmit.setOnClickListener {
             if(mDialog.etLaywerPhoneNumber.text.toString().length == 10) {

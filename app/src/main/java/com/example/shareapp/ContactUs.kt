@@ -12,8 +12,11 @@ class ContactUs : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_us)
 
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        btnBackContactUs.setOnClickListener {
+            val intent = Intent(this,Dashboard::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        }
 
         twitter_btn.setOnClickListener {
             val intent= Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Consumeradda"))

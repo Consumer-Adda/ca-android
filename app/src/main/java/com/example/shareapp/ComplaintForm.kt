@@ -26,8 +26,9 @@ class ComplaintForm : AppCompatActivity() {
         etClientEmail.text=em?.toEditable()
 
         btnBack.setOnClickListener {
-            startActivity(Intent(this,Dashboard::class.java))
-            finish()
+            val intent = Intent(this,Dashboard::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
         }
 
         btnAttachment1.setOnClickListener {
