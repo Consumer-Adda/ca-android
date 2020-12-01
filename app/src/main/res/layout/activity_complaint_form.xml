@@ -14,7 +14,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="Dashboard"
         android:padding="12dp"
-        android:textSize="24sp"
+        android:textSize="21sp"
+        android:textStyle="bold"
         android:textColor="#5896d6"
         android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24" />
 
@@ -305,8 +306,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
                         android:background="@drawable/et_bg"
-                        android:hint="First Name"
-                        android:inputType="textPersonName"
+                        android:hint="Eg. XYZ Company"
                         android:paddingStart="8dp"
                         android:paddingTop="10dp"
                         android:paddingEnd="8dp"
@@ -607,7 +607,7 @@
                         android:cursorVisible="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:textColor="#a3a3a3"
+                        android:textColor="#484848"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

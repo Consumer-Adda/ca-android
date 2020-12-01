@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="22dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#95E2E2E2">
+
+            <TextView
+                android:id="@+id/tvCardCaseIdHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                android:text="Case ID"
+                android:textColor="@color/systemViolet"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="20dp" />
+
+
+
+            <TextView
+                android:id="@+id/tvCardClientName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvCardCaseIdHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent=".65"
+                android:layout_marginTop="10dp"
+                android:padding="6dp"
+                android:text="John Doe"
+                android:gravity="center_horizontal"
+                android:textColor="@color/systemViolet"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/tvCardClientName"
+                app:layout_constraintBottom_toBottomOf="@id/tvCardClientName"
+                app:layout_constraintEnd_toStartOf="@id/tvCardClientName"
+                android:background="#a9a9a9"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Client"
+                android:textColor="#000"
+                app:layout_constraintTop_toTopOf="@id/tvCardClientName"
+                app:layout_constraintBottom_toBottomOf="@id/tvCardClientName"
+                app:layout_constraintEnd_toStartOf="@id/tvCardClientName"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toBottomOf="@id/tvCardClientName"
+                app:layout_constraintBottom_toTopOf="@id/tvCardLawyerName"
+                android:background="#a9a9a9"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                />
+
+            <TextView
+                android:id="@+id/tvCardLawyerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvCardClientName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent=".65"
+                android:layout_marginTop="10dp"
+                android:padding="6dp"
+                android:text="Jenny Doe"
+                android:gravity="center_horizontal"
+                android:textColor="@color/systemViolet"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/tvCardLawyerName"
+                app:layout_constraintBottom_toBottomOf="@id/tvCardLawyerName"
+                app:layout_constraintEnd_toStartOf="@id/tvCardLawyerName"
+                android:background="#a9a9a9"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lawyer"
+                android:textColor="#000"
+                app:layout_constraintTop_toTopOf="@id/tvCardLawyerName"
+                app:layout_constraintBottom_toBottomOf="@id/tvCardLawyerName"
+                app:layout_constraintEnd_toStartOf="@id/tvCardLawyerName"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tvCardLawyerName"
+                app:layout_constraintBottom_toTopOf="@id/tvCardCaseType"
+                android:background="#a9a9a9"
+                />
+
+            <TextView
+                android:id="@+id/tvCardCaseType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvCardLawyerName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent=".65"
+                android:layout_marginTop="10dp"
+                android:padding="6dp"
+                android:text="Other"
+                android:gravity="center_horizontal"
+                android:textColor="@color/systemViolet"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/tvCardCaseType"
+                app:layout_constraintBottom_toBottomOf="@id/tvCardCaseType"
+                app:layout_constraintEnd_toStartOf="@id/tvCardCaseType"
+                android:background="#a9a9a9"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CaseType"
+                android:textColor="#000"
+                app:layout_constraintTop_toTopOf="@id/tvCardCaseType"
+                app:layout_constraintBottom_toBottomOf="@id/tvCardCaseType"
+                app:layout_constraintEnd_toStartOf="@id/tvCardCaseType"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <ProgressBar
+                android:id="@+id/pbCaseClosed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                app:layout_constraintWidth_percent=".16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardCaseType"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="12dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Case\nClosed"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="@id/pbCaseClosed"
+                app:layout_constraintStart_toStartOf="@id/pbCaseClosed"
+                app:layout_constraintTop_toBottomOf="@id/pbCaseClosed"
+                />
+
+            <ProgressBar
+                android:id="@+id/pbCaseFiled"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                app:layout_constraintWidth_percent=".16"
+                app:layout_constraintTop_toTopOf="@id/pbCaseClosed"
+                app:layout_constraintEnd_toStartOf="@id/pbCaseClosed"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Case\nFiled"
+                app:layout_constraintStart_toStartOf="@id/pbCaseFiled"
+                app:layout_constraintEnd_toEndOf="@id/pbCaseFiled"
+                app:layout_constraintTop_toBottomOf="@id/pbCaseFiled"
+                />
+
+            <ProgressBar
+                android:id="@+id/pbLegalNotice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                app:layout_constraintWidth_percent=".16"
+                app:layout_constraintTop_toTopOf="@id/pbCaseFiled"
+                app:layout_constraintEnd_toStartOf="@id/pbCaseFiled"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notice\nSent"
+                android:gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@id/pbLegalNotice"
+                app:layout_constraintEnd_toEndOf="@id/pbLegalNotice"
+                app:layout_constraintStart_toStartOf="@id/pbLegalNotice"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/tvCardCaseIdHeader"
+                app:layout_constraintBottom_toBottomOf="@id/tvCardCaseIdHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"
+                android:drawableLeft="@drawable/ic_baseline_chat_24"
+                />
+
+            <ProgressBar
+                android:id="@+id/pbMediation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                app:layout_constraintWidth_percent=".16"
+                app:layout_constraintTop_toTopOf="@id/pbLegalNotice"
+                app:layout_constraintEnd_toStartOf="@id/pbLegalNotice"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mediation\nInitiated"
+                android:gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@id/pbMediation"
+                app:layout_constraintEnd_toEndOf="@id/pbMediation"
+                app:layout_constraintStart_toStartOf="@id/pbMediation"
+                />
+
+            <ProgressBar
+                android:id="@+id/pbComplaintSubmitted"
+                android:layout_width="0dp"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                app:layout_constraintWidth_percent=".16"
+                app:layout_constraintTop_toTopOf="@id/pbMediation"
+                app:layout_constraintEnd_toStartOf="@id/pbMediation"
+                android:layout_marginRight="10dp"
+                android:progress="100"
+                android:progressTint="#26d614"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Case\nLogged"
+                android:gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="@id/pbComplaintSubmitted"
+                app:layout_constraintEnd_toEndOf="@id/pbComplaintSubmitted"
+                app:layout_constraintTop_toBottomOf="@id/pbComplaintSubmitted"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

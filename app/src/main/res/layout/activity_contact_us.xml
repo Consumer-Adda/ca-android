@@ -7,18 +7,19 @@
     android:background="#ffffff"
     tools:context=".ContactUs">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+
+
+    <TextView
+        android:id="@+id/btnBackContactUs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AppCompat.Light"
-        app:title="Consumer Adda"
-        app:titleTextColor="@color/gradStart" />
+        android:text="Dashboard"
+        android:padding="12dp"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:textColor="#5896d6"
+        android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <TextView
         android:id="@+id/textView3"
@@ -26,12 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
         android:layout_marginLeft="11dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Contact Us"
         android:textColor="@color/black"
         android:textSize="35dp"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="@+id/btnBackContactUs"
+        app:layout_constraintTop_toBottomOf="@+id/btnBackContactUs" />
 
     <TextView
         android:id="@+id/textView4"

@@ -30,15 +30,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val rellay1=findViewById<RelativeLayout>(R.id.rellay1)
-        val rellay2=findViewById<RelativeLayout>(R.id.rellay2)
-
-
-        Handler().postDelayed({
-            //doSomethingHere()
-            rellay1.visibility= View.VISIBLE
-            rellay2.visibility=View.VISIBLE
-        }, 1000)
 
         signup_page.setOnClickListener{
             val intent= Intent(this,Sign_Up_Activity::class.java)
@@ -48,7 +39,10 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         Login_btn.setOnClickListener {
-            doLogin()
+            if(validData())
+            {
+                doLogin()
+            }
         }
 
         forgotpwd_btn.setOnClickListener {
@@ -84,6 +78,28 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    private fun validData(): Boolean {
+        val email=login_email.text.toString().trim()
+        val pwd = login_pwd.text.toString().trim()
+
+        if(!isEmailValid(email) ||email.isEmpty())
+        {
+            login_email.error="Please enter a valid email"
+            login_email.requestFocus()
+            return false
+        }
+
+
+        if(pwd.isEmpty() || pwd.length < 6)
+        {
+            login_pwd.error="Password must contain at-least 6 letters"
+            login_pwd.requestFocus()
+            return false
+        }
+        return true
+    }
+
     private fun forgotpwd(email : EditText)
     {
         if(!isEmailValid(email.text.toString()) || email.text.toString().isEmpty())

@@ -18,7 +18,8 @@ class Dashboard : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
-
+    private lateinit var CardModelList: ArrayList<DashboardCardModel>
+    private lateinit var cardAdapter: DashboardCardAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +31,24 @@ class Dashboard : AppCompatActivity() {
             startActivity(Intent(this,ComplaintForm::class.java))
         }
 
+        loadcards()
+
         btnMoreSetOnClickListener()
 
+    }
+
+    private fun loadcards()
+    {
+        CardModelList = ArrayList()
+
+        CardModelList.add(DashboardCardModel("CA_RERA_1","Abhi","Vatsal","RERA"))
+        CardModelList.add(DashboardCardModel("CA_OTHER_1","Ankit","Abhishek","Other"))
+        CardModelList.add(DashboardCardModel("CA_RERA_2","Raju","Rasmeet","RERA"))
+        CardModelList.add(DashboardCardModel("CA_BLAW_1","Humraz","John Doe","Banking Law"))
+
+        vpCardView.adapter = DashboardCardAdapter(this,CardModelList)
+
+        vpCardView.setPadding(20,10,20,10)
     }
 
     private fun btnMoreSetOnClickListener() {
@@ -43,10 +60,16 @@ class Dashboard : AppCompatActivity() {
             ) // change the layout file as per the need
             popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                 when (item.itemId) {
-                    R.id.about-> startActivity(Intent(this,About::class.java))
-                    R.id.service->startActivity(Intent(this,Services::class.java))
-                    R.id.sign_out->niklo()
-                    R.id.contact->startActivity(Intent(this,ContactUs::class.java));
+                    R.id.about -> {
+                        startActivity(Intent(this, About::class.java))
+                    }
+                    R.id.service -> {
+                        startActivity(Intent(this, Services::class.java))
+                    }
+                    R.id.sign_out -> niklo()
+                    R.id.contact -> {
+                        startActivity(Intent(this, ContactUs::class.java))
+                    };
                 }
                 true
             })
@@ -55,22 +78,7 @@ class Dashboard : AppCompatActivity() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.toolbar_menu,menu)
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId)
-        {
-            R.id.about-> startActivity(Intent(this,About::class.java))
-            R.id.service->startActivity(Intent(this,Services::class.java))
-//            R.id.ca_help->startActivity(Intent(this,Steps::class.java))
-            R.id.sign_out->niklo()
-            R.id.contact->startActivity(Intent(this,ContactUs::class.java));
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     private fun niklo()
     {
