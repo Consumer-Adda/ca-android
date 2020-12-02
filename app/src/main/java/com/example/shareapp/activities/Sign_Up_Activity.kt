@@ -1,24 +1,19 @@
-package com.example.shareapp
+package com.example.shareapp.activities
 
 import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.Timestamp
+import com.example.shareapp.R
+import com.example.shareapp.activities.MainActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.*
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.forgot_password_dialog.*
 import kotlinx.android.synthetic.main.forgot_password_dialog.btnFPSubmit
 import kotlinx.android.synthetic.main.lawyer_phone_dialog.*
 import kotlinx.android.synthetic.main.sign_up.*
@@ -46,7 +41,7 @@ class Sign_Up_Activity :AppCompatActivity(){
         setContentView(R.layout.sign_up)
 
         Login_pg.setOnClickListener {
-            val intent= Intent(this,MainActivity::class.java)
+            val intent= Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -218,7 +213,7 @@ class Sign_Up_Activity :AppCompatActivity(){
                                 user?.sendEmailVerification()
                                     ?.addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
-                                            startActivity(Intent(this,MainActivity::class.java))
+                                            startActivity(Intent(this, MainActivity::class.java))
                                             finish()
                                         }
                                         else

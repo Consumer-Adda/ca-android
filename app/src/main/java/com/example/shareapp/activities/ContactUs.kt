@@ -1,9 +1,10 @@
-package com.example.shareapp
+package com.example.shareapp.activities
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.shareapp.R
 import kotlinx.android.synthetic.main.activity_contact_us.*
 
 class ContactUs : AppCompatActivity() {
@@ -13,7 +14,7 @@ class ContactUs : AppCompatActivity() {
         setContentView(R.layout.activity_contact_us)
 
         btnBackContactUs.setOnClickListener {
-            val intent = Intent(this,Dashboard::class.java)
+            val intent = Intent(this, Dashboard::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }
