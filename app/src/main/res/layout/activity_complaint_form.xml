@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="#ffffff"
     android:layout_height="match_parent"
-    tools:context=".ComplaintForm">
+    tools:context=".activities.ComplaintForm">
 
     <TextView
         android:id="@+id/btnBack"

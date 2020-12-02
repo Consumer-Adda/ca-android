@@ -1,20 +1,16 @@
-package com.example.shareapp
+package com.example.shareapp.activities
 
 
 import android.app.Dialog
 import android.app.ProgressDialog
-import android.app.ProgressDialog.show
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
-import android.widget.RelativeLayout
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import com.example.shareapp.R
+import com.example.shareapp.activities.Sign_Up_Activity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
@@ -32,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 
         signup_page.setOnClickListener{
-            val intent= Intent(this,Sign_Up_Activity::class.java)
+            val intent= Intent(this, Sign_Up_Activity::class.java)
             startActivity(intent)
         }
 
@@ -107,7 +103,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val progress=ProgressDialog(this,R.style.AlertDialogTheme)
+        val progress=ProgressDialog(this, R.style.AlertDialogTheme)
         progress.setMessage("Sending reset link...")
         progress.setCancelable(false)
         progress.show()
@@ -132,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         {
             if(currentUser.isEmailVerified)
             {
-                startActivity(Intent(this,Dashboard::class.java))
+                startActivity(Intent(this, Dashboard::class.java))
                 finish()
             }
             else
@@ -167,7 +163,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val progress=ProgressDialog(this,R.style.AlertDialogTheme)
+        val progress=ProgressDialog(this, R.style.AlertDialogTheme)
         progress.setMessage("Logining In...")
         progress.setCancelable(false)
         progress.show()
