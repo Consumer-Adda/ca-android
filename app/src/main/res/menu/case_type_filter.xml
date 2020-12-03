@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/btnCPLaw"
+        android:title="Consumer Protection Law"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/btnBLaw"
+        android:title="Banking Regulations"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/btnILaw"
+        android:title="Insurance Law"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/btnDLaw"
+        android:title="Debt Recovery"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/btnRERA"
+        android:title="RERA"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/btnOther"
+        android:title="Other"
+        app:showAsAction="never"/>
+
+</menu>

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.shareapp">
-
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    package="com.example.consumeradda">
 
     <application
         android:allowBackup="true"
@@ -12,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.CaseDetails"></activity>
+        <activity android:name=".activities.ChatActivity"></activity>
+        <activity android:name=".activities.CaseDetails" />
         <activity android:name=".activities.CasesList" />
-        <activity android:name=".activities.ChatDetailActivity" />
-        <activity android:name=".activities.ChatActivity" />
+        <activity android:name=".activities.ComplaintForm" />
+        <activity android:name=".activities.Dashboard" />
+        <activity android:name=".activities.ContactUs" />
+        <activity android:name=".activities.Services" />
+        <activity android:name=".activities.About" />
         <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,21 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.ComplaintForm"
-            android:parentActivityName=".activities.Dashboard" />
-        <activity
-            android:name=".activities.ContactUs"
-            android:parentActivityName=".activities.Dashboard" />
-        <activity
-            android:name=".activities.Services"
-            android:parentActivityName=".activities.Dashboard" />
-        <activity
-            android:name=".activities.About"
-            android:parentActivityName=".activities.Dashboard" />
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".Sign_Up_Activity" />
-        <activity android:name=".activities.Dashboard" />
+        <activity android:name=".activities.SignUpActivity" />
+        <activity android:name=".activities.LoginActivity" />
     </application>
 
 </manifest>
