@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvApplications" />
 
         <TextView
-            android:id="@+id/tvApplicationListBack"
+            android:id="@+id/btnBackCaseList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,8 +49,8 @@
             android:textSize="40sp"
             android:textColor="#000"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/tvApplicationListBack"
-            app:layout_constraintTop_toBottomOf="@id/tvApplicationListBack"
+            app:layout_constraintStart_toStartOf="@id/btnBackCaseList"
+            app:layout_constraintTop_toBottomOf="@id/btnBackCaseList"
             />
 
         <View
@@ -63,26 +63,29 @@
             />
 
         <ProgressBar
-            android:id="@+id/pbAppList"
+            android:id="@+id/pbCaseList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="40dp"
+            android:progressTint="#26d616"
             android:progressDrawable="@drawable/progress_bar_style"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/tvApplicationListBack"
+            app:layout_constraintStart_toEndOf="@+id/btnBackCaseList"
             app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvApplicationList"
+        android:id="@+id/rvCaseDetails"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clApplicationListHeader"
         tools:listitem="@layout/application_list_card"
-        android:layout_marginTop="120dp">
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 

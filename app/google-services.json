@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "43937790046",
-    "firebase_url": "https://consumer-adda-insider.firebaseio.com",
-    "project_id": "consumer-adda-insider",
-    "storage_bucket": "consumer-adda-insider.appspot.com"
+    "project_number": "934593649019",
+    "firebase_url": "https://consumeradda-a5a94.firebaseio.com",
+    "project_id": "consumeradda-a5a94",
+    "storage_bucket": "consumeradda-a5a94.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:43937790046:android:8a1771a0132f8daea45ccf",
+        "mobilesdk_app_id": "1:934593649019:android:b481f85c5922bc9b8505de",
         "android_client_info": {
-          "package_name": "com.example.shareapp"
+          "package_name": "com.example.consumeradda"
         }
       },
       "oauth_client": [
         {
-          "client_id": "43937790046-n0bq1rs0b1eejatjpog6g04v838pbnen.apps.googleusercontent.com",
+          "client_id": "934593649019-6j9oopk26qc1kskf5vo1v5dd3g0kaq2t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAhy4y5JYukurMQVNMuafW60KNy6JIeJSg"
+          "current_key": "AIzaSyDGa-e5mlmUoW50kpXqoZ6193SE1vzls_o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "43937790046-n0bq1rs0b1eejatjpog6g04v838pbnen.apps.googleusercontent.com",
+              "client_id": "934593649019-6j9oopk26qc1kskf5vo1v5dd3g0kaq2t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
