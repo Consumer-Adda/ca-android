@@ -356,10 +356,8 @@
                         android:layout_width="220dp"
                         android:layout_height="44dp"
                         android:padding="10dp"
-                        android:spinnerMode="dropdown"
                         app:layout_constraintTop_toBottomOf="@id/etCaseAgainst"
                         app:layout_constraintEnd_toEndOf="@id/etCaseAgainst"
-                        android:background="@drawable/et_bg"
                         android:layout_marginTop="10dp"
                         />
 
@@ -579,7 +577,7 @@
                         android:layout_width="1dp"
                         android:layout_height="0dp"
                         android:background="#a9a9a9"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="5dp"
                         app:layout_constraintEnd_toStartOf="@id/etClientEmail"
@@ -627,7 +625,7 @@
                         android:layout_width="1dp"
                         android:layout_height="0dp"
                         android:background="#a9a9a9"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="5dp"
                         app:layout_constraintEnd_toStartOf="@id/etClientPhoneNumber"
@@ -665,6 +663,7 @@
             </androidx.cardview.widget.CardView>
 
             <Button
+                android:id="@+id/btnSubmitCase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/cvContactDetails"
@@ -681,6 +680,18 @@
                 android:background="@drawable/btn_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="25dp"
+                />
+
+            <ProgressBar
+                android:id="@+id/pbSubmitCase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/btnSubmitCase"
+                app:layout_constraintBottom_toBottomOf="@id/btnSubmitCase"
+                app:layout_constraintEnd_toEndOf="@id/btnSubmitCase"
+                android:layout_marginRight="20dp"
+                android:visibility="invisible"
+                android:progressDrawable="@drawable/progress_bar_style"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

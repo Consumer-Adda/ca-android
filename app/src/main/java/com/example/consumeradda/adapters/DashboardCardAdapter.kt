@@ -9,7 +9,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.example.consumeradda.R
 
 import com.example.consumeradda.activities.OnCardClicked
-import com.example.shareapp.models.DashboardCardModel
+import com.example.consumeradda.models.cardModels.DashboardCardModel
 import kotlinx.android.synthetic.main.case_card.view.*
 
 class DashboardCardAdapter (private val context: Context, private val cardlist: ArrayList<DashboardCardModel>, private var onCardClicked: OnCardClicked): PagerAdapter()
@@ -75,7 +75,7 @@ class DashboardCardAdapter (private val context: Context, private val cardlist: 
 
             if(lawyerName != "N/A")
             {
-                Toast.makeText(context,"$clientName's Application", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context,"$clientName's Application", Toast.LENGTH_SHORT).show()
                 onCardClicked.onCardClicked(position)
             }
             else{

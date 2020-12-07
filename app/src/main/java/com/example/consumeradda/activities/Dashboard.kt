@@ -1,13 +1,17 @@
 package com.example.consumeradda.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.consumeradda.R
 import com.example.shareapp.adapters.DashboardCardAdapter
-import com.example.shareapp.models.DashboardCardModel
+import com.example.consumeradda.models.cardModels.DashboardCardModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
@@ -15,14 +19,17 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
 
     private lateinit var auth: FirebaseAuth
     private var isCardInfoDisplayed : Boolean = false
+    private lateinit var prefs: SharedPreferences
     private var cardPositionClicked : Int = -1
     private lateinit var CardModelList: ArrayList<DashboardCardModel>
     private lateinit var cardAdapter: DashboardCardAdapter
+    var role = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        prefs=this.getSharedPreferences("com.example.consumeradda", Context.MODE_PRIVATE)
 
         complaint_btn.setOnClickListener {
             if(complaint_btn.text.toString() == "Submit Complaint")
@@ -31,14 +38,41 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
             }
             else
             {
-//                startActivity(Intent(this,CasesList::class.java))
+                startActivity(Intent(this,CasesList::class.java))
             }
         }
 
-        loadcards()
+        role = prefs.getInt("Role", 0)
 
+        // Role 0 - Client
+        // Role 1 - Lawyer
+        Toast.makeText(this,"$role",Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed({
+            updateDashboard()
+        },1500)
+
+        loadcards()
         btnMoreSetOnClickListener()
 
+    }
+
+    private fun updateDashboard() {
+        if(role==0)
+        {
+            tvCardHeader.text = "Case Status"
+            tvCardData.text = "Card mei dekh lena bhai"
+//            if(CardModelList.size >= 1)
+            {
+                complaint_btn.visibility = View.INVISIBLE
+            }
+        }
+        else
+        {
+            tvCardHeader.text = "Location Selected"
+            tvCardData.text = "Ruko zara, sabar karo!"
+            complaint_btn.text = "Cases List"
+        }
     }
 
     private fun loadcards()
@@ -92,12 +126,11 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
     }
 
     override fun onCardClicked(position: Int) {
-        if (isCardInfoDisplayed) {
-            Toast.makeText(this,"Case ID - ${CardModelList[position].caseID}", Toast.LENGTH_SHORT).show()
-            cardPositionClicked=position
-//            val intent = Intent(this, ChatActivity::class.java)
-//            intent.putExtra("ApplicantName",CardModelList[position].client)
-//            startActivity(intent)
+        if(CardModelList[position].lawyer != "N/A")
+        {
+            val intent = Intent(this,ChatActivity::class.java)
+            intent.putExtra("Client",CardModelList[position].client)
+            startActivity(intent)
         }
     }
 }
