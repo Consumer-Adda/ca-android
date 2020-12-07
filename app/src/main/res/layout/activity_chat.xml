@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f5f5f5"
     tools:context=".activities.ChatActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,6 +57,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/clChatHeader"
         app:layout_constraintBottom_toTopOf="@id/etChatMessage"
         android:layout_marginBottom="2dp"
@@ -118,12 +120,13 @@
         app:layout_constraintBottom_toBottomOf="@id/btnAddAttachment"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/chat_msg_bg"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:gravity="center_vertical"
         android:hint="Type a message"
-        android:paddingLeft="10dp"
+        android:paddingLeft="14dp"
         android:paddingTop="12dp"
-        android:paddingRight="10dp"
+        android:paddingRight="12dp"
+        android:textCursorDrawable="@null"
         android:paddingBottom="12dp"
         android:layout_marginBottom="3dp"
         android:layout_marginLeft="8dp"

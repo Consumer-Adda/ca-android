@@ -245,7 +245,7 @@
 
 
             <Button
-                android:id="@+id/btnAppDetail1Next"
+                android:id="@+id/btnAcceptCase"
                 android:layout_width="0dp"
                 android:background="@drawable/btn_bg"
                 android:layout_height="wrap_content"
@@ -262,6 +262,19 @@
                 app:layout_constraintStart_toStartOf="@+id/cvAppDetails"
                 app:layout_constraintTop_toBottomOf="@+id/cvAppDetails"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <ProgressBar
+                android:id="@+id/pbAcceptCase"
+                android:progressTint="@color/white"
+                android:progressDrawable="@drawable/progress_bar_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="@id/btnAcceptCase"
+                app:layout_constraintBottom_toBottomOf="@id/btnAcceptCase"
+                app:layout_constraintStart_toStartOf="@id/btnAcceptCase"
+                app:layout_constraintEnd_toEndOf="@id/btnAcceptCase"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

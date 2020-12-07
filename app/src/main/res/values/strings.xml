@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ConsumerAdda</string>
+    <string-array name="caseType">
+        <item>Consumer Protection Law</item>
+        <item>Banking Regulations</item>
+        <item>Insurance Law</item>
+        <item>Debt Recovery</item>
+        <item>RERA</item>
+        <item>Other</item>
+    </string-array>
 </resources>

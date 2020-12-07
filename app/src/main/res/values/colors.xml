@@ -17,4 +17,5 @@
     <color name="green">#62EF68</color>
     <color name="systemBlue">#5896d6</color>
     <color name="systemViolet">#5856d6</color>
+    <color name="greyBG">#e2e2e2</color>
 </resources>

@@ -8,18 +8,27 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import com.example.consumeradda.R
+import com.example.consumeradda.models.authModels.Register
+import com.example.consumeradda.models.authModels.RegisterDefaultResponse
+import com.example.consumeradda.service.RetrofitClient
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import kotlinx.android.synthetic.main.lawyer_phone_dialog.*
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private var role = -1
     private var lawyerPhoneNumber: String = ""
+    private var SIGNUPFRAGTAG="SIGNUP-TAG"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +45,6 @@ class SignUpActivity : AppCompatActivity() {
     private fun Login_pgSetOnClickListener() {
         Login_pg.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }
     }
@@ -98,36 +106,70 @@ class SignUpActivity : AppCompatActivity() {
         val userEmail = etSignUpEmail.text.toString().trim()
         val userPassword = etSignUpPassword.text.toString().trim()
 
+        val obj = Register(userName,userEmail,userPassword,role,lawyerPhoneNumber)
+
         val progress= ProgressDialog(this, R.style.AlertDialogTheme)
         progress.setMessage("Signing Up...")
         progress.setCancelable(false)
         progress.show()
-        auth.createUserWithEmailAndPassword(userEmail, userPassword)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful)
-                {
+
+        RetrofitClient.instance.authService.registerUser(obj).enqueue(object :
+            Callback<RegisterDefaultResponse> {
+            override fun onResponse(
+                call: Call<RegisterDefaultResponse>,
+                response: Response<RegisterDefaultResponse>
+            ) {
+                if (response.isSuccessful) {
+                    Log.i(SIGNUPFRAGTAG, response.toString())
+                    Log.i(SIGNUPFRAGTAG, response.body()!!.verify_link)
+                    toastMaker(response.body()?.message.toString())
                     progress.dismiss()
-                    val user = auth.currentUser
-                    user?.sendEmailVerification()
-                        ?.addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                startActivity(Intent(this, LoginActivity::class.java))
-                                finish()
-                            }
-                            else
-                            {
-                                Toast.makeText(baseContext, "Sign-Up failed.Try again after sometime",
-                                    Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                }
-                else
-                {
+                } else {
+                    Log.i(SIGNUPFRAGTAG, response.toString())
+                    val jObjError = JSONObject(response.errorBody()!!.string())
+                    Log.i(SIGNUPFRAGTAG, jObjError.getString("message"))
+                    toastMaker("SignUp failed - "+jObjError.getString("message"))
                     progress.dismiss()
-                    Toast.makeText(baseContext, "Sign-Up failed.Try again after sometime",
-                        Toast.LENGTH_SHORT).show()
                 }
             }
+
+            override fun onFailure(call: Call<RegisterDefaultResponse>, t: Throwable) {
+                Log.i(SIGNUPFRAGTAG, t.message)
+                toastMaker("No Internet / Server Down")
+            }
+        })
+
+
+//        auth.createUserWithEmailAndPassword(userEmail, userPassword)
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful)
+//                {
+//                    progress.dismiss()
+//                    val user = auth.currentUser
+//                    user?.sendEmailVerification()
+//                        ?.addOnCompleteListener { task ->
+//                            if (task.isSuccessful) {
+//                                startActivity(Intent(this, LoginActivity::class.java))
+//                                finish()
+//                            }
+//                            else
+//                            {
+//                                Toast.makeText(baseContext, "Sign-Up failed.Try again after sometime",
+//                                    Toast.LENGTH_SHORT).show()
+//                            }
+//                        }
+//                }
+//                else
+//                {
+//                    progress.dismiss()
+//                    Toast.makeText(baseContext, "Sign-Up failed.Try again after sometime",
+//                        Toast.LENGTH_SHORT).show()
+//                }
+//            }
+    }
+
+    private fun toastMaker(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun getPhoneNumber() {
