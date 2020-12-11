@@ -8,11 +8,19 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import com.example.consumeradda.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_chat.*
 
 class ChatActivity : AppCompatActivity() {
 
     private var btnAttachmentClicked : Boolean = false
+    val PDF = 0
+    val IMG = 1
+    lateinit var mAuth: FirebaseAuth
+    lateinit var mStorageRef: StorageReference
+
     private val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(
             this,
             R.anim.rotate_open_anim
@@ -34,6 +42,9 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
+        mAuth= FirebaseAuth.getInstance()
+        mStorageRef = FirebaseStorage.getInstance().reference
+
         val applicantName = intent.getStringExtra("Client")
         btnChatDetails.text = applicantName
 
@@ -48,11 +59,17 @@ class ChatActivity : AppCompatActivity() {
         }
 
         btnAddPdf.setOnClickListener {
-
+            val intent = Intent()
+            intent.type = "application/pdf"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(Intent.createChooser(intent, "Select PDF"), PDF)
         }
 
         btnAddImage.setOnClickListener {
-
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(Intent.createChooser(intent, "Select PDF"), IMG)
         }
     }
 

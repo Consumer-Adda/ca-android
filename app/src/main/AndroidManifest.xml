@@ -15,9 +15,9 @@
         <activity android:name=".activities.CasesList" />
         <activity android:name=".activities.ComplaintForm" />
         <activity android:name=".activities.Dashboard" />
-        <activity android:name=".activities.ContactUs" />
-        <activity android:name=".activities.Services" />
-        <activity android:name=".activities.About" />
+        <activity android:name=".activities.support.ContactUs" />
+        <activity android:name=".activities.support.Services" />
+        <activity android:name=".activities.support.About" />
         <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

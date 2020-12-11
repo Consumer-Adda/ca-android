@@ -1,10 +1,11 @@
-package com.example.consumeradda.activities
+package com.example.consumeradda.activities.support
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.consumeradda.R
+import com.example.consumeradda.activities.Dashboard
 import kotlinx.android.synthetic.main.activity_contact_us.*
 
 class ContactUs : AppCompatActivity() {

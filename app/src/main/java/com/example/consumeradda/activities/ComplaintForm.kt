@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.util.Log
 import android.view.View
@@ -47,11 +48,11 @@ class ComplaintForm : AppCompatActivity() {
     lateinit var lastName: String
     lateinit var city: String
     lateinit var state: String
-    lateinit var attachment1DownloadableUrl : String
-    lateinit var attachment2DownloadableUrl : String
-    lateinit var attachment3DownloadableUrl : String
-    lateinit var attachment4DownloadableUrl : String
-    lateinit var attachment5DownloadableUrl : String
+    var attachment1DownloadableUrl : String = ""
+    var attachment2DownloadableUrl : String = ""
+    var attachment3DownloadableUrl : String = ""
+    var attachment4DownloadableUrl : String = ""
+    var attachment5DownloadableUrl : String = ""
 
     var attachment1Uploaded = false
     var attachment2Uploaded = false
@@ -113,6 +114,9 @@ class ComplaintForm : AppCompatActivity() {
             if(validData())
             {
                 pbSubmitCase.visibility = View.VISIBLE
+                btnSubmitCase.isEnabled = false
+                btnSubmitCase.isClickable = false
+                btnSubmitCase.text = ""
                 uploadDoc1()
             }
         }
@@ -134,6 +138,7 @@ class ComplaintForm : AppCompatActivity() {
                 attachment1Uploaded=true
                 if(btnNumber >= 2)
                 {
+                    Log.i("Download-URL-1",attachment1DownloadableUrl)
                     uploadDoc2()
                 }
                 else
@@ -281,7 +286,9 @@ class ComplaintForm : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Log.i(APPLICATIONSUBMITTAG, "success")
                             toastMaker(response.body()?.message)
-                            toDashboardActivity()
+                            Handler().postDelayed({
+                                toDashboardActivity()
+                            },3000)
                         } else {
                             val jObjError = JSONObject(response.errorBody()!!.string())
                             Log.i(APPLICATIONSUBMITTAG, response.toString())
@@ -295,6 +302,9 @@ class ComplaintForm : AppCompatActivity() {
                         Log.i(APPLICATIONSUBMITTAG, "error" + t.message)
                         toastMaker("Failed to Submit Application - " + t.message)
                         pbSubmitCase.visibility=View.INVISIBLE
+                        btnSubmitCase.isEnabled = true
+                        btnSubmitCase.isClickable = true
+                        btnSubmitCase.text = "Submit"
                     }
                 })
     }
@@ -371,10 +381,16 @@ class ComplaintForm : AppCompatActivity() {
             return false
         }
 
-        if(casetype == null || btnNumber == -1)
+        if(casetype == null)
         {
             Toast.makeText(this,"Select some case type",Toast.LENGTH_SHORT).show()
             btnCaseType.requestFocus()
+            return false
+        }
+
+        if(btnNumber == -1)
+        {
+            Toast.makeText(this,"Upload at-least one attachment",Toast.LENGTH_SHORT).show()
             return false
         }
 

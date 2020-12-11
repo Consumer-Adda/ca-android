@@ -10,6 +10,9 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.consumeradda.R
+import com.example.consumeradda.activities.support.About
+import com.example.consumeradda.activities.support.ContactUs
+import com.example.consumeradda.activities.support.Services
 import com.example.shareapp.adapters.DashboardCardAdapter
 import com.example.consumeradda.models.cardModels.DashboardCardModel
 import com.google.firebase.auth.FirebaseAuth
@@ -58,10 +61,10 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
     }
 
     private fun updateDashboard() {
-        if(role==0)
+        if(role!=0)
         {
             tvCardHeader.text = "Case Status"
-            tvCardData.text = "Card mei dekh lena bhai"
+            tvCardData.text = "Notice Sent"
 //            if(CardModelList.size >= 1)
             {
                 complaint_btn.visibility = View.INVISIBLE
@@ -70,7 +73,7 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
         else
         {
             tvCardHeader.text = "Location Selected"
-            tvCardData.text = "Ruko zara, sabar karo!"
+            tvCardData.text = "Agra, Uttar Pradesh"
             complaint_btn.text = "Cases List"
         }
     }
@@ -118,6 +121,7 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
     
     private fun doSignOut()
     {
+        prefs.edit().putBoolean("isLoggedIn", false).apply()
         FirebaseAuth.getInstance().signOut()
         val intent = Intent(this, LoginActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
