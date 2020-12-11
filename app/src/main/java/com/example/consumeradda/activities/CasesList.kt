@@ -30,6 +30,7 @@ class CasesList : AppCompatActivity(),OnCaseClicked {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cases_list)
 
+        case = ArrayList()
         case.add("Consumer Protection Law")
         case.add("Banking Regulation")
         case.add("Insurance Law")
@@ -39,9 +40,9 @@ class CasesList : AppCompatActivity(),OnCaseClicked {
 
         caseListDetail = ArrayList()
 
-        for(i in 1..30)
+        for(i in 0..29)
         {
-            caseListDetail.add(CaseResponse("Case ID - $i", "City $i", "State $i", "Applicant $i", "", "${case[Random.nextInt(0,case.size-1)]}", "Company $i", "This is a sample description", "", "", "", "", ""))
+            caseListDetail.add(CaseResponse(i, "City $i", "State $i", "Applicant $i", "", "${case[Random.nextInt(0, case.size - 1)]}", "Company $i", "This is a sample description", "", "", "", "", ""))
         }
 
         loadCases()
@@ -53,29 +54,12 @@ class CasesList : AppCompatActivity(),OnCaseClicked {
         caseList = ArrayList()
         val n: Int = caseListDetail.size
 
-        if(selectedType=="")
-        {
-            for(i in 1..n)
+
+            for(i in 0..n-1)
             {
                 caseList.add(ApplicationCardModel(caseListDetail[i].applicantFirstName.toString(),caseListDetail[i].city.toString()+","+caseListDetail[i].state.toString(),"${caseListDetail[i].caseType}"))
             }
-        }
-        else
-        {
-            if(newList.size != 0)
-            {
-                newList.clear()
-            }
-            for(i in 1..n)
-            {
-                if(selectedType == caseListDetail[i].caseType.toString()) {
-                    newList?.add(ApplicationCardModel(caseListDetail[i].applicantFirstName.toString(),caseListDetail[i].city.toString()+","+caseListDetail[i].state.toString(),"${caseListDetail[i].caseType}"))
-                }
-            }
-            caseList = newList
 
-            
-        }
 
         applicationListAdapter= ApplicationListAdapter(caseList, this)
         rvCaseList.adapter = applicationListAdapter
@@ -100,26 +84,32 @@ class CasesList : AppCompatActivity(),OnCaseClicked {
             mDialog.show()
             mDialog.rbCPLaw.setOnClickListener {
                 selectedType = mDialog.rbCPLaw.text.toString()
+                toastMaker(selectedType)
                 mDialog.dismiss()
             }
             mDialog.rbBLaw.setOnClickListener {
                 selectedType = mDialog.rbBLaw.text.toString()
+                toastMaker(selectedType)
                 mDialog.dismiss()
             }
             mDialog.rbDRLaw.setOnClickListener {
                 selectedType = mDialog.rbDRLaw.text.toString()
+                toastMaker(selectedType)
                 mDialog.dismiss()
             }
             mDialog.rbILaw.setOnClickListener {
                 selectedType = mDialog.rbILaw.text.toString()
+                toastMaker(selectedType)
                 mDialog.dismiss()
             }
             mDialog.rbRERA.setOnClickListener {
                 selectedType = mDialog.rbRERA.text.toString()
+                toastMaker(selectedType)
                 mDialog.dismiss()
             }
             mDialog.rbOther.setOnClickListener {
                 selectedType = mDialog.rbOther.text.toString()
+                toastMaker(selectedType)
                 mDialog.dismiss()
             }
         }
@@ -138,7 +128,12 @@ class CasesList : AppCompatActivity(),OnCaseClicked {
 
     override fun onCaseItemClicked(position: Int) {
         val intent = Intent(this,CaseDetails::class.java)
-        
+        intent.putExtra("CaseID",caseListDetail[position].caseID)
+        intent.putExtra("ClientName",caseListDetail[position].applicantFirstName)
+        intent.putExtra("Location",caseListDetail[position].city+", "+caseListDetail[position].state)
+        intent.putExtra("caseAgainst",caseListDetail[position].caseAgainst)
+        intent.putExtra("caseDescription",caseListDetail[position].caseDescription)
+        intent.putExtra("caseType",caseListDetail[position].caseType)
         startActivity(intent)
     }
 }
