@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 class CaseResponse (
 
         @field: SerializedName("id")
-        val caseID: String ?= null,
+        val caseID: Int ?= null,
 
         @field:SerializedName("city")
         val city: String? = null,

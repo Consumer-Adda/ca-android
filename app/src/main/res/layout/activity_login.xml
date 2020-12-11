@@ -158,19 +158,5 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
-    <ProgressBar
-        android:id="@+id/pbCaseList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="40dp"
-        android:progressTint="#26d616"
-        android:progressDrawable="@drawable/progress_bar_style"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnBackCaseList"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
