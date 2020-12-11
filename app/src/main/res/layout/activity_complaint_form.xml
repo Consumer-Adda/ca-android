@@ -689,9 +689,11 @@
                 app:layout_constraintTop_toTopOf="@id/btnSubmitCase"
                 app:layout_constraintBottom_toBottomOf="@id/btnSubmitCase"
                 app:layout_constraintEnd_toEndOf="@id/btnSubmitCase"
-                android:layout_marginRight="20dp"
+                app:layout_constraintStart_toStartOf="@id/btnSubmitCase"
                 android:visibility="invisible"
                 android:progressDrawable="@drawable/progress_bar_style"
+                android:elevation="40dp"
+
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

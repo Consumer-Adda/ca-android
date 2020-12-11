@@ -16,90 +16,70 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/clMore2"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvAppListApplicant"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="Applicant Full Name"
                 android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:text="Applicant Full Name"
                 android:textColor="@color/systemViolet"
                 android:textSize="17sp"
-                />
+                app:layout_constraintWidth_max="280dp"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvAppListLocation"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="8dp"
                 android:text="State, District"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="280dp"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/tvAppListApplicant"
-                />
+                app:layout_constraintTop_toBottomOf="@id/tvAppListApplicant" />
 
             <TextView
                 android:id="@+id/tvAppListCaseType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="18dp"
-                android:text="Case Type"
-                android:textSize="16sp"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAppListLocation"
-                />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clMore2"
-            android:layout_width="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvAppListAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="50dp"
-                android:textColor="@color/systemViolet"
-                android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="280dp"
+                android:layout_marginBottom="12dp"
+                android:text="Case Type"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAppListLocation" />
+
+            <TextView
+                android:id="@+id/tvCDetail"
+                android:drawableStart="@drawable/ic_baseline_arrow_forward_ios_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="#a9a9a9"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#a9a9a9"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 
 </androidx.cardview.widget.CardView>

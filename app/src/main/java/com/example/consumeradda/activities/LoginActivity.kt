@@ -209,7 +209,7 @@ class LoginActivity : AppCompatActivity() {
                         when (response.body()?.role) {
                             0 -> {
                                 prefs.edit().putInt("Role", 0).apply()
-                                Log.i(LOGINFRAGTAG, "Client + ")
+                                Log.i(LOGINFRAGTAG, "Client")
                             }
                             1 -> {
                                 prefs.edit().putInt("Role", 1).apply()
