@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.consumeradda.R
-import com.example.consumeradda.activities.OnCaseClicked
+import com.example.consumeradda.fragments.caseListFragment.OnApplicationClicked
+
 import com.example.consumeradda.models.cardModels.ApplicationCardModel
 import com.example.consumeradda.models.caseModels.CaseResponse
 import kotlinx.android.synthetic.main.application_list_card.view.*
 
-class ApplicationListAdapter(private var entries: MutableList<ApplicationCardModel>, private var onCaseClicked: OnCaseClicked) : RecyclerView.Adapter<ApplicationListAdapter.ViewHolder>()
+class ApplicationListAdapter(private var entries: MutableList<CaseResponse>, private var onCaseClicked: OnApplicationClicked) : RecyclerView.Adapter<ApplicationListAdapter.ViewHolder>()
 {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
     {
@@ -20,7 +21,7 @@ class ApplicationListAdapter(private var entries: MutableList<ApplicationCardMod
         val caseType : TextView = itemView.tvAppListCaseType
     }
 
-    fun updateList(updatedList: MutableList<ApplicationCardModel>)
+    fun updateList(updatedList: MutableList<CaseResponse>)
     {
         entries = updatedList
         notifyDataSetChanged()
@@ -34,8 +35,8 @@ class ApplicationListAdapter(private var entries: MutableList<ApplicationCardMod
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val client = entries[position].clientName
-        val location = entries[position].location
+        val client = entries[position].applicantFirstName+" "+entries[position].applicantLastName
+        val location = entries[position].district+", "+entries[position].state
         val type = entries[position].caseType
 
         holder.clientName.text = client
@@ -43,7 +44,7 @@ class ApplicationListAdapter(private var entries: MutableList<ApplicationCardMod
         holder.caseType.text = type
 
         holder.itemView.setOnClickListener {
-            onCaseClicked.onCaseItemClicked(position)
+            onCaseClicked.onApplicationItemClicked(position)
         }
 
     }

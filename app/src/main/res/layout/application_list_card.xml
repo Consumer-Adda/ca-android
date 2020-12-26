@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="8dp"
-                android:text="State, District"
+                android:text="District, State"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintWidth_max="280dp"
                 android:textSize="16sp"

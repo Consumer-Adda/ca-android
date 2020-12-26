@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.caseListFragment.CasesListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clApplicationListHeader"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="120dp">
+
+        <TextView
+            android:id="@+id/tvFilterCase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="FILTER"
+            android:textColor="@color/systemViolet"
+            app:layout_constraintBottom_toBottomOf="@+id/tvApplications"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.94"
+            app:layout_constraintStart_toEndOf="@+id/tvApplications"
+            app:layout_constraintTop_toTopOf="@+id/tvApplications" />
+
+        <TextView
+            android:id="@+id/btnClearFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="9dp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@id/tvFilterCase"
+            app:layout_constraintBottom_toBottomOf="@id/tvFilterCase"
+            app:layout_constraintEnd_toStartOf="@id/tvFilterCase"
+            android:text="CLEAR FILTER"
+            android:backgroundTint="@color/systemViolet"
+            android:background="@drawable/btn_bg"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="15dp"
+            />
+
+        <TextView
+            android:id="@+id/btnBackCaseList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:text="Dashboard"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#5896d6"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
+            />
+
+        <TextView
+            android:id="@+id/tvApplications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cases"
+            android:layout_marginTop="10dp"
+            android:textSize="40sp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/btnBackCaseList"
+            app:layout_constraintTop_toBottomOf="@id/btnBackCaseList"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a9a9a9"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ProgressBar
+            android:id="@+id/pbCaseList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="40dp"
+            android:progressBackgroundTint="@color/teal_200"
+            android:progressTint="@color/teal_200"
+            android:progressDrawable="@drawable/progress_bar_style"
+            android:visibility="invisible"
+            android:layout_margin="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/btnBackCaseList"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCaseList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clApplicationListHeader"
+        tools:listitem="@layout/application_list_card"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CaseDetails">
+    android:background="#e2e2e2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.caseListFragment.CaseDetailsFragment">
 
     <TextView
         android:id="@+id/btnBackCaseDetail"
@@ -28,6 +30,7 @@
         android:textColor="#000"
         android:textStyle="bold"
         android:textSize="30sp"
+        android:maxWidth="320dp"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/btnBackCaseDetail"
         app:layout_constraintStart_toStartOf="@id/btnBackCaseDetail"
@@ -158,17 +161,62 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         app:layout_constraintBottom_toTopOf="@id/tvCaseDetailPurpose"
-                        app:layout_constraintTop_toBottomOf="@id/tvCaseDetailCaseAgainst"
+                        app:layout_constraintTop_toBottomOf="@id/tvCaseDetailMoneyInvolved"
                         />
 
 
+                    <TextView
+                        android:id="@+id/tvCaseDetailMoneyInvolved"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCaseDetailCaseAgainst"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="5dp"
+                        android:padding="5dp"
+                        android:text="Sample Text"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Money\nInvolved"
+                        android:gravity="center_horizontal"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCaseDetailMoneyInvolved"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tvCaseDetailMoneyInvolved"
+                        app:layout_constraintTop_toTopOf="@id/tvCaseDetailMoneyInvolved"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        app:layout_constraintBottom_toTopOf="@id/tvCaseDetailMoneyInvolved"
+                        app:layout_constraintTop_toBottomOf="@id/tvCaseDetailCaseAgainst"
+                        />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#a9a9a9"
+                        android:layout_marginRight="2dp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCaseDetailMoneyInvolved"
+                        app:layout_constraintEnd_toStartOf="@id/tvCaseDetailMoneyInvolved"
+                        app:layout_constraintTop_toTopOf="@id/tvCaseDetailMoneyInvolved"
+                        />
 
                     <TextView
                         android:id="@+id/tvCaseDetailPurpose"
                         android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvCaseDetailCaseAgainst"
+                        app:layout_constraintTop_toBottomOf="@id/tvCaseDetailMoneyInvolved"
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="5dp"
                         android:padding="5dp"
@@ -254,7 +302,7 @@
                 android:text="Accept Case"
                 android:textColor="#FFF"
                 android:textSize="18sp"
-                app:backgroundTint="@color/systemViolet"
+                app:backgroundTint="@color/systemBlue"
                 app:cornerRadius="30dp"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"

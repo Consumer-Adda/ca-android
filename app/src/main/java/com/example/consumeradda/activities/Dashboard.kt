@@ -28,6 +28,22 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
     private lateinit var cardAdapter: DashboardCardAdapter
     var role = 0
 
+    companion object {
+        var DASHBOARDTAG="DASHBOARDTAG"
+        var dataForLocationFrag=0 // 1 - state, 2 - district
+        var state="State"
+        var district="District"
+        var stateNum=-1
+        var districtNum=-1
+//        lateinit var locationDataModel:LocationDataModel
+        var role=0
+        var isHistoryAvail=0
+//        lateinit var dashboardAPIResponse:DashboardDefaultResponse
+//        var historyApiList = ArrayList<HistoryCardModel>()
+        var isDashboardAPIResponseInitialised=false
+        var cardPositionClicked=-1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -39,9 +55,9 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
             {
                 startActivity(Intent(this, ComplaintForm::class.java))
             }
-            else
+            else if(complaint_btn.text.toString() == "Cases List")
             {
-                startActivity(Intent(this,CasesList::class.java))
+                startActivity(Intent(this,CasesListActivity::class.java))
             }
         }
 
@@ -61,13 +77,17 @@ class Dashboard : AppCompatActivity(), OnCardClicked {
     }
 
     private fun updateDashboard() {
-        if(role!=0)
+        if(role==0)
         {
             tvCardHeader.text = "Case Status"
             tvCardData.text = "Notice Sent"
 //            if(CardModelList.size >= 1)
             {
                 complaint_btn.visibility = View.INVISIBLE
+            }
+//            else
+            {
+                complaint_btn.text = "Submit Complaint"
             }
         }
         else

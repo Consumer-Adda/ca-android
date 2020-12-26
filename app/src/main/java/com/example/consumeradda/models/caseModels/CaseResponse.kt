@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName
 
 class CaseResponse (
 
-        @field: SerializedName("id")
-        val caseID: Int ?= null,
-
-        @field:SerializedName("city")
-        val city: String? = null,
+        @field: SerializedName("case_id")
+        val caseID: String ?= null,
 
         @field:SerializedName("state")
         val state: String ?= null,
+
+        @field:SerializedName("district")
+        val district: String? = null,
 
         @field: SerializedName("applicant_first_name")
         val applicantFirstName: String ?= null,
@@ -27,6 +27,12 @@ class CaseResponse (
 
         @field: SerializedName("case_description")
         val caseDescription: String ?= null,
+
+        @field:SerializedName("money_involved")
+        val moneyInvolved: Int?= null,
+
+        @field: SerializedName("phone_number")
+        val phoneNumber: String ?=null,
 
         @field: SerializedName("doc_1")
         val doc1: String ?= null,
