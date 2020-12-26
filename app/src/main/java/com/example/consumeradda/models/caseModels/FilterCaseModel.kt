@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 class FilterCaseModel (
     @field:SerializedName("district")
-    val district: String? = null,
+    val district: String?= null,
 
     @field:SerializedName("state")
-    val state: String? = null
+    val state: String?= null
 )

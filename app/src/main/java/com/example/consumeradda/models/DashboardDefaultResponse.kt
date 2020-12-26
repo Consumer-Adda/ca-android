@@ -13,17 +13,32 @@ data class DashboardDefaultResponse(
 
 data class ApplicationsItem(
 
+    @field:SerializedName("case_id")
+    val caseId: String ?= null,
+
+    @field:SerializedName("applicant_id")
+    val applicantId: String? = null,
+
+    @field:SerializedName("lawyer_id")
+    val lawyerId: String ?= null,
+
     @field:SerializedName("applicant_first_name")
     val applicantFirstName: String? = null,
 
     @field:SerializedName("applicant_last_name")
     val applicantLastName: String? = null,
 
-    @field:SerializedName("district")
-    val district: String? = null,
+    @field:SerializedName("lawyer_first_name")
+    val lawyerFirstName: String?= null,
+
+    @field:SerializedName("lawyer_last_name")
+    val lawyerLastName: String ?= null,
 
     @field:SerializedName("state")
     val state: String? = null,
+
+    @field:SerializedName("district")
+    val district: String? = null,
 
     @field:SerializedName("case_against")
     val caseAgainst: String? = null,
@@ -31,8 +46,11 @@ data class ApplicationsItem(
     @field:SerializedName("case_type")
     val caseType: String? = null,
 
-    @field:SerializedName("case_description")
-    val caseDescription: String? = null,
+    @field:SerializedName("case_status")
+    val caseStatus: Int?=null,
+
+    @field:SerializedName("case_overview")
+    val caseOverview: String? = null,
 
     @field:SerializedName("money_involved")
     val moneyInvolved: Int? = null,
