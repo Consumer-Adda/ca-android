@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bottom_dialog"
+    tools:theme="@style/BottomSheetSpinner.DialogTheme"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvDialogHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="22sp"
+        android:text="Preferred Location"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/btnUpdateLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tvDialogHeader"
+        app:layout_constraintBottom_toBottomOf="@id/tvDialogHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="15dp"
+        android:textSize="16sp"
+        android:text="UPDATE"
+        android:padding="8dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/systemBlue"
+        />
+
+    <TextView
+        android:id="@+id/tvDialogState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogHeader"
+        app:layout_constraintStart_toStartOf="@id/tvDialogHeader"
+        android:layout_marginTop="15dp"
+        android:text="Select State"
+        android:textSize="15sp"
+        />
+
+    <Spinner
+        android:id="@+id/spState"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogState"
+        />
+
+    <TextView
+        android:id="@+id/tvDialogDistrict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spState"
+        app:layout_constraintStart_toStartOf="@id/tvDialogState"
+        android:layout_marginTop="15dp"
+        android:text="Select District"
+        android:textSize="15dp"
+        />
+
+    <Spinner
+        android:id="@+id/spDistrict"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogDistrict"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

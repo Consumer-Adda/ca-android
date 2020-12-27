@@ -143,8 +143,6 @@ class ComplaintForm : AppCompatActivity() {
         {
             0-> {
                 val districts = arrayOf("Select One:")
-//                etCityDistrict.visibility = View.INVISIBLE
-//                etCityDistrict.isEnabled = false
                 etCityDistrict.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, districts)
                 etCityDistrict.onItemSelectedListener = object : AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
                     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
